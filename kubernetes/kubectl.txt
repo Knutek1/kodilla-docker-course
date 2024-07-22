@@ -1,0 +1,24 @@
+kubectl create namespace nginx-ns
+
+kubectl -n nginx-ns create deployment --image=nginx nginx-app
+
+kubectl get deploy --all-namespaces
+
+kubectl config set-context --current --namespace=nginx-ns
+
+kubectl describe deploy nginx-app
+
+kubectl get pods -o name
+
+kubectl get deploy -o yaml
+
+kubectl exec nginx-app-5777b5f95-g9spb -- cat /etc/hosts (tu się trochę posiłkowałem czatem GPT - nie znalazłem opcji cat w materiałach kursu. Czy to miało być tak wykonane czy inaczej?)
+
+kubectl delete pods nginx-app-5777b5f95-g9spb
+
+kubectl delete deploy nginx-app
+
+kubectl delete ns nginx-ns
+
+
+
